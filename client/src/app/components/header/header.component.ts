@@ -20,11 +20,12 @@ export class HeaderComponent implements OnInit {
   }
   set cart(cart: Cart) {
     this._cart = cart;
-
-    this.itemsQuantity = cart.items
-      .map((item) => item.quantity)
-      .reduce((prev, curr) => prev + curr);
-    localStorage.setItem("totalItems", JSON.stringify(this.itemsQuantity));
+    if (cart.items.length > 0) {
+      this.itemsQuantity = cart.items
+        .map((item) => item.quantity)
+        .reduce((prev, curr) => prev + curr);
+      localStorage.setItem("totalItems", JSON.stringify(this.itemsQuantity));
+    }
   }
 
   getTotal(items: Array<CartItem>): number {

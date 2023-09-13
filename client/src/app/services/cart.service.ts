@@ -30,6 +30,9 @@ export class CartService {
   }
 
   getTotal(items: Array<CartItem>): number {
+    if (items.length === 0) {
+      return 0;
+    }
     return items
       .map((item) => item.price * item.quantity)
       .reduce((prev, current) => prev + current, 0);
