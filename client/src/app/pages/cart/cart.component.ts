@@ -46,7 +46,10 @@ export class CartComponent implements OnInit {
 
   onCheckout(): void {
     this.http
-      .post("http://localhost:4242/checkout", { items: this.cart.items })
+      .post(
+        "https://server-angular-ecommerce-5ccd0ac28e38.herokuapp.com/checkout",
+        { items: this.cart.items }
+      )
       .subscribe((res: any) => {
         window.location.href = res;
       });
