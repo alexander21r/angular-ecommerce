@@ -59,10 +59,8 @@ const getStripeUrl = async (req, res, next) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url:
-        "https://server-angular-ecommerce-5ccd0ac28e38.herokuapp.com/success.html",
-      cancel_url:
-        "https://server-angular-ecommerce-5ccd0ac28e38.herokuapp.com/cancel.html",
+      success_url: "https://server-angular-ecommerce.onrender.com/success.html",
+      cancel_url: "https://server-angular-ecommerce.onrender.com/cancel.html",
     });
     res.status(200).json(session.url);
   } catch (error) {
